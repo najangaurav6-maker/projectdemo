@@ -4,68 +4,35 @@
   <meta charset="utf-8">
   <title>Helicopter Service by You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#FF9933">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="header">
-  <div class="container nav">
-    <a href="/"><strong>Helicopter Service by You</strong></a>
+<header>
+  <div class="nav">
+    <strong>Helicopter Service by You</strong>
     <nav>
-      <a href="/search.html">Search</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/admin.html">Admin</a>
+      <a href="search.html">Search</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html">Admin</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <img src="hero.jpg" alt="Trikuta mountains at sunrise">
+  <img src="images/hero.jpg" alt="Trikuta mountains at sunrise">
   <div class="overlay"></div>
   <div class="text">
     <h1>Helicopter Service to Vaishno Devi</h1>
     <p>Safe, secure, and blessed journeys. Direct booking — no online payments.</p>
-    <a class="btn" href="/search.html">Book Your Darshan Flight</a>
+    <!-- Book Flight button goes directly to service.html -->
+    <a class="btn" href="service.html?id=katra-sanjichhat">Book Your Darshan Flight</a>
   </div>
 </section>
 
-<div class="card">
-  <div class="content">
-    <h3>Udhampur → Katra Helipad</h3>
-    <p>Duration: 15 min · Capacity: 6</p>
-    <a class="btn" href="/service.html?id=your_service_id">View details</a>
-  </div>
-</div>
 
-
-<section class="container" style="padding:24px 0">
-  <h2 style="font-size:1.5rem;margin:0">Featured routes</h2>
-  <p style="color:#6b7280">Operated daily, weather permitting.</p>
-  <div class="grid grid-3" id="featured"></div>
-</section>
-
-<section class="container" style="padding-bottom:24px">
-  <div class="card"><div class="content carousel">
-    <span class="quote" id="quote"></span>
-  </div></div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <p>May your journey be safe and blessed. © <span id="year"></span></p>
-    <p>Call: <span id="phone"></span> · Email: <span id="email"></span></p>
-  </div>
+<footer>
+  <p>May your journey be safe and blessed. © 2026</p>
+  <p>Call: +91-99999-99999 · Email: bookings@yourdomain.in</p>
 </footer>
-
-<script type="module" src="/theme.js"></script>
-<script src="/main.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
-
-
-
-
-
