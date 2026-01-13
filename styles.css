@@ -6,7 +6,7 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #fff8e7; /* cream background */
+  background: #fff8e7; /* soft cream background */
   color: #1f2937;      /* dark text */
   line-height: 1.5;
 }
@@ -15,6 +15,7 @@ body {
 header {
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
+  position: relative;
 }
 .nav {
   max-width: 1100px;
@@ -24,6 +25,9 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.nav strong {
+  font-size: 1.1rem;
+}
 .nav a {
   margin-left: 16px;
   text-decoration: none;
@@ -31,7 +35,40 @@ header {
   font-weight: 500;
 }
 .nav a:hover {
-  color: #0a74da; /* sky blue accent */
+  color: #0a74da; /* accent blue */
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu {
+  display: flex;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 56px;
+    right: 16px;
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .menu.show {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+  }
 }
 
 /* Hero section */
@@ -64,6 +101,16 @@ header {
 .hero p {
   margin-bottom: 12px;
 }
+@media (max-width: 600px) {
+  .hero .text {
+    bottom: 20px;
+    left: 12px;
+    font-size: 0.95rem;
+  }
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+}
 
 /* Buttons */
 .btn {
@@ -79,7 +126,7 @@ header {
   background: #cc7a29;
 }
 
-/* Cards + grid */
+/* Containers + grid */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -98,6 +145,8 @@ header {
 @media (max-width: 600px) {
   .grid-3 { grid-template-columns: 1fr; }
 }
+
+/* Cards */
 .card {
   background: #fff;
   border: 1px solid #e5e7eb;
@@ -113,6 +162,15 @@ header {
   padding: 12px;
 }
 
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
 /* Footer */
 footer {
   background: #fff;
@@ -122,4 +180,3 @@ footer {
   font-size: 0.9rem;
   color: #6b7280;
 }
-
