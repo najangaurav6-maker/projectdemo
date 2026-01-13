@@ -1,35 +1,40 @@
-import { quotes } from './theme.js';
+// Toggle mobile menu (hamburger)
+const menuToggle = document.getElementById('menuToggle');
+const menu = document.getElementById('menu');
 
-(async function() {
-  // Expose contact info for pages
-  localStorage.setItem('contact_phone', (typeof CONTACT_PHONE !== 'undefined' ? CONTACT_PHONE : '') || '');
-  localStorage.setItem('contact_email', (typeof CONTACT_EMAIL !== 'undefined' ? CONTACT_EMAIL : '') || '');
+if (menuToggle && menu) {
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
 
-  const res = await fetch('/api/services');
-  const services = await res.json();
-  const featured = document.getElementById('featured');
-  featured.innerHTML = services.slice(0,3).map(s => `
-    <div class="card">
-      <img src="${(s.gallery_urls && s.gallery_urls[0]) || '/images/fleet.jpg'}" alt="${s.route_name}" style="width:100%;height:160px;object-fit:cover">
-      <div class="content">
-        <h3 style="margin:0">${s.route_name}</h3>
-        <p style="color:#6b7280">${s.origin} → ${s.destination}</p>
-        <p>Duration: ${s.duration_min} min · Capacity: ${s.capacity}</p>
-        <a class="btn" href="/service.html?id=${s.id}" style="margin-top:8px">View details</a>
-      </div>
-    </div>
-  `).join('');
+  // Optional: close menu when a link is clicked
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('show');
+    });
+  });
+}
 
-  // Rotate quotes
-  const el = document.getElementById('quote');
-  let i = 0;
-  el.textContent = quotes[i];
-  setInterval(() => {
-    i = (i + 1) % quotes.length;
-    el.textContent = quotes[i];
-  }, 4000);
+// Booking form handler (on service.html)
+const bookForm = document.getElementById('bookForm');
+if (bookForm) {
+  bookForm.addEventListener('submit', e => {
+    e.preventDefault();
 
-  // Footer contact
-  document.getElementById('phone').textContent = localStorage.getItem('contact_phone') || '';
-  document.getElementById('email').textContent = localStorage.getItem('contact_email') || '';
-})();
+    // Collect form data
+    const formData = new FormData(bookForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const pax = formData.get('pax');
+
+    // Simple demo message
+    const msg = document.getElementById('msg');
+    if (msg) {
+      msg.textContent = `Booking received for ${name} (${pax} passengers). We will contact you at ${email}.`;
+    }
+
+    // Reset form
+    bookForm.reset();
+  });
+}
