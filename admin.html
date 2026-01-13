@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><title>Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+<header class="header"><div class="container nav">
+  <a href="/"><strong>Helicopter Service by You</strong></a>
+  <nav><a href="/search.html">Search</a></nav>
+</div></header>
+
+<section class="container" style="padding:24px 0">
+  <div id="login">
+    <h1 style="font-size:1.25rem;margin:0">Admin login</h1>
+    <form id="loginForm" class="card" style="padding:16px;margin-top:8px">
+      <input class="input" name="email" type="email" placeholder="Email" required>
+      <input class="input" name="password" type="password" placeholder="Password" required style="margin-top:8px">
+      <button class="btn" style="margin-top:8px" type="submit">Sign in</button>
+      <p id="loginMsg" style="color:#ef4444"></p>
+    </form>
+  </div>
+
+  <div id="dash" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h1 style="font-size:1.25rem;margin:0">Recent bookings</h1>
+      <button id="seed" class="btn">Seed demo data</button>
+    </div>
+    <div class="card" style="margin-top:8px;overflow:auto">
+      <table class="table" id="bookings">
+        <thead><tr><th>Ref</th><th>Name</th><th>Phone</th><th>Pax</th><th>Status</th><th>Created</th><th>Actions</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><p>May your journey be safe and blessed.</p></div></footer>
+
+<script src="/admin.js"></script>
+</body></html>

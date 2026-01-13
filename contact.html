@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><title>Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+<header class="header"><div class="container nav">
+  <a href="/"><strong>Helicopter Service by You</strong></a>
+  <nav><a href="/search.html">Search</a></nav>
+</div></header>
+
+<section class="container" style="padding:24px 0">
+  <h1 style="font-size:1.5rem;margin:0">Contact us</h1>
+  <p>Phone: <span id="phone"></span></p>
+  <p>Email: <span id="email"></span></p>
+  <p>WhatsApp: <a id="wa" class="btn" href="#" target="_blank" rel="noopener">Message us</a></p>
+  <p style="margin-top:12px;color:#6b7280">We operate daily subject to weather. Bring valid ID.</p>
+</section>
+
+<footer class="footer"><div class="container"><p>May your journey be safe and blessed.</p></div></footer>
+<script>
+  fetch('/env.json').then(()=>{}).catch(()=>{}); // placeholder
+  const phone = localStorage.getItem('contact_phone') || '';
+  const email = localStorage.getItem('contact_email') || '';
+  document.getElementById('phone').textContent = phone || 'Set CONTACT_PHONE in .env';
+  document.getElementById('email').textContent = email || 'Set CONTACT_EMAIL in .env';
+  const waNum = (phone || '').replace(/[^0-9]/g,'');
+  document.getElementById('wa').href = 'https://wa.me/' + waNum;
+</script>
+</body></html>
