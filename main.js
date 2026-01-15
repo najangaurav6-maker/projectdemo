@@ -34,7 +34,23 @@ if (bookForm) {
       msg.textContent = `Booking received for ${name} (${pax} passengers). We will contact you at ${email}.`;
     }
 
+    const helicopterIcon = L.icon({
+  iconUrl: 'images/helicopter.png', // add a helicopter icon image
+  iconSize: [40, 40],
+  iconAnchor: [20, 20]
+});
+
+const heliMarker = L.marker(katra, { icon: helicopterIcon }).addTo(map);
+
+let direction = 1;
+setInterval(() => {
+  const latlng = heliMarker.getLatLng();
+  heliMarker.setLatLng([latlng.lat + 0.0003 * direction, latlng.lng]);
+  direction *= -1;
+}, 1000);
+
     // Reset form
     bookForm.reset();
   });
 }
+
